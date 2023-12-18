@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_NavjitK_TXBlog_1702883423260-push-trigger-input-set
+  identifier: Build_NavjitK_TXBlog_1702883423260pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_NavjitK_TXBlog_1702883423260
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
