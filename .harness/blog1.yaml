@@ -32,4 +32,4 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: docker-compose up -d
+                    command: docker build -t my-app .
