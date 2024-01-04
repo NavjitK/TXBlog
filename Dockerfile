@@ -49,7 +49,7 @@ COPY migrations migrations
 COPY microblog.py config.py boot.sh ./
 
 # Set execute permissions for the boot script
-RUN powershell -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; ./boot.sh"
+RUN powershell -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; .\boot.sh"
 
 # Set environment variable for Flask application
 ENV FLASK_APP=microblog.py
