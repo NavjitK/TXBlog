@@ -31,5 +31,5 @@ pipeline:
                   name: Run_1
                   identifier: Run_1
                   spec:
-                    shell: Sh
+                    shell: Powershell
                     command: docker build -t my-app .
