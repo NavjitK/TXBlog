@@ -42,7 +42,12 @@ RUN python -m venv venv
 # Activate the virtual environment and install requirements
 RUN . venv/Scripts/Activate; pip install --no-cache-dir -r requirements.txt
 RUN . venv/Scripts/Activate; pip install gunicorn pymysql cryptography scikit-learn pyinstaller
-WORKDIR C:/Users/microblog
+COPY boot.py .
+
+# Install pyinstaller using pip
+RUN pip install pyinstaller
+
+# Run pyinstaller to create a standalone executable
 RUN pyinstaller --onefile boot.py
 # Copy the application files and scripts to the container
 COPY app app
