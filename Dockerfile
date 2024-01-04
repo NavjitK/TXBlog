@@ -42,21 +42,10 @@ RUN python -m venv venv
 # Activate the virtual environment and install requirements
 RUN . venv/Scripts/Activate; pip install --no-cache-dir -r requirements.txt
 RUN . venv/Scripts/Activate; pip install gunicorn pymysql cryptography scikit-learn pyinstaller
-COPY boot.py .
 
-# Install pyinstaller using pip
-RUN pip install pyinstaller
-
-# Run pyinstaller to create a standalone executable
-RUN pyinstaller --onefile boot.py
-# Copy the application files and scripts to the container
-COPY boot.exe boot.exe
 COPY app app
 COPY migrations migrations
-COPY microblog.py config.py boot.exe ./
-
-# Set execute permissions for the boot script
-RUN powershell -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; .\boot.exe"
+COPY microblog.py config.py ./
 
 # Set environment variable for Flask application
 ENV FLASK_APP=microblog.py
