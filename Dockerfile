@@ -40,8 +40,10 @@ COPY requirements.txt requirements.txt
 RUN python -m venv venv
 
 # Activate the virtual environment and install requirements
-RUN . venv/Scripts/Activate && pip install --no-cache-dir -r requirements.txt
-RUN . venv/Scripts/Activate && pip install dsutils gunicorn pymysql cryptography
+RUN . venv/Scripts/Activate \
+  pip install --no-cache-dir -r requirements.txt
+RUN . venv/Scripts/Activate \ 
+  pip install dsutils gunicorn pymysql cryptography
 
 # Copy the application files and scripts to the container
 COPY app app
