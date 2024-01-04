@@ -50,7 +50,7 @@ RUN pip install pyinstaller
 # Run pyinstaller to create a standalone executable
 RUN pyinstaller --onefile boot.py
 # Copy the application files and scripts to the container
-RUN ls /app
+COPY boot.exe boot.exe
 COPY app app
 COPY migrations migrations
 COPY microblog.py config.py boot.exe ./
